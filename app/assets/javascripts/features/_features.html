@@ -1,0 +1,12 @@
+<div class="page-header">
+    <h1>Features</h1>
+</div>
+<div ng-repeat="feature in features | orderBy:'-id'">
+    {{feature.git_id}}
+      <span style="font-size:20px; margin-left:10px;">
+        <a href="features/{{feature.id}}">
+            {{feature.title}}
+        </a>
+      </span>
+    posted by <a ng-href="users/{{feature.user.id}}">{{feature.user.gitname}}</a>
+</div>
