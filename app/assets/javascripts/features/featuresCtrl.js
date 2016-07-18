@@ -10,6 +10,7 @@ my_app.controller('FeaturesCtrl', [
 
 
     $scope.$on('devise:logout', function (e, user){
+      console.log(e, user);
       $scope.user = {};
       $state.go('sign_in')
     });

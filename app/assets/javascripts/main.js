@@ -1,9 +1,10 @@
 my_app = angular.module('openQuestions', ['ui.router', 'templates', 'Devise', 'ui-notification']);
 my_app.run(['$rootScope', '$state', 'Auth', function ($rootScope, $state, Auth) {
+  $rootScope.$state = $state;
+  
   $rootScope.$on("$stateChangeError", console.log.bind(console));
 
   $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {
-    // console.log(fromState, toState, Auth.currentUser())
     if (toState.authenticate) {
       Auth.currentUser().then(null, function () {
         $state.go("sign_in");
@@ -15,7 +16,7 @@ my_app.run(['$rootScope', '$state', 'Auth', function ($rootScope, $state, Auth) 
       Auth.currentUser().then(function () {
         $state.transitionTo("features");
         event.preventDefault();
-      }, null);
+      });
     }
   });
 }]);
