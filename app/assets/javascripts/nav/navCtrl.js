@@ -7,7 +7,6 @@ my_app.controller('NavCtrl', [
 
     Auth.currentUser().then(function (user){
       $scope.user = user;
-      console.log($scope.user)
     });
 
     $scope.$on('devise:logout', function (e, user){

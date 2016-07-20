@@ -2,7 +2,7 @@ my_app.controller('AuthCtrl', [
     '$scope', 'Auth', '$state', 'Notification',
     function ($scope, Auth, $state, Notification) {
         $scope.signedIn = Auth.isAuthenticated;
-
+        
         Auth.currentUser().then(function (user) {
             $scope.user = user;
         });

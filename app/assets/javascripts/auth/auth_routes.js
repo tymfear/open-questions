@@ -5,12 +5,14 @@ my_app.config(['$stateProvider',
         url: '/',
         templateUrl: 'auth/_sign_in.html',
         controller: 'AuthCtrl',
-        unauthorized_only: true
+        unauthorized_only: true,
+        title: 'Sign In'
       })
       .state('sign_up', {
         url: '/sign_up',
         templateUrl: 'auth/_sign_up.html',
         controller: 'AuthCtrl',
-        unauthorized_only: true
+        unauthorized_only: true,
+        title: 'Sign Up'
       });
   }]);
