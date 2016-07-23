@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :features
+
+  get '*unmatched_route', to: 'application#angular'
 end
