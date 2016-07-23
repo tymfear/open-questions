@@ -1,1 +1,1 @@
-json.array! @features
+json.partial! 'single', collection: @features, as: :feature

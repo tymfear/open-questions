@@ -1,20 +1,21 @@
 my_app.service('features', ['$http', 'Notification', function ($http, Notification) {
-  var self = this;
-  
-  self.getAll = function () {
+    var self = this;
+    self.features;
+
+    self.getAll = function () {
         return $http.get('/features.json').success(function (data) {
-           return data
+            self.features = data;
         });
 
     };
 
-  self.get = function (id) {
+    self.get = function (id) {
         return $http.get('/features/' + id + '.json').then(function (res) {
             return res.data;
         });
     };
 
-  self.create = function (post) {
+    self.create = function (post) {
         return $http.post('/features.json', post)
             .then(function (response) {
                 o.posts.push(response.data);
