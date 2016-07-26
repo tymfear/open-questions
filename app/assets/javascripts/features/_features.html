@@ -10,7 +10,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="feature in features">
+        <tr ng-repeat="feature in features" ng-click="showFeature(feature.id)" class="clickable">
             <td>{{feature.id}}</td>
             <td>{{feature.name}} {{feature.github_id}}</td>
             <td>{{feature.owner}}</td>

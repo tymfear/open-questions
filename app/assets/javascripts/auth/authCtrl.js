@@ -28,7 +28,8 @@ my_app.controller('AuthCtrl', [
         $scope.sign_up = function () {
         // TODO: find better way to fix attribute reuirement when User does not touch the Password Confirmation field
             if($scope.user){
-                $scope.user.password_confirmation = $scope.user.password_confirmation === undefined ? "" :$scope.user.password_confirmation
+                $scope.user.password_confirmation = 
+                  $scope.user.password_confirmation === undefined ? "" : $scope.user.password_confirmation
             }
 
             Auth.register($scope.user).then(

@@ -8,9 +8,35 @@ my_app.config(['$stateProvider',
         authenticate: true,
         title: 'Features',
         resolve: {
-          postPromise: ['features', function(features){
+          featuresPromise: ['features', function(features){
             return features.getAll();
           }]
         }
+      })
+      .state('feature', {
+        url: '/features/:id',
+        templateUrl: 'features/_feature.html',
+        controller: 'FeaturesCtrl',
+        authenticate: true,
+        title: 'Feature',
+        resolve: {
+          featurePromise: ['features', '$stateParams', function(features, $stateParams){
+            return features.get($stateParams.id);
+          }]
+        }
+      })
+      .state('newFeature', {
+        url: '/new_feature',
+        templateUrl: 'features/_newFeature.html',
+        controller: 'FeaturesCtrl',
+        authenticate: true,
+        title: 'Create New Feature'
+      })
+      .state('editFeature', {
+        url: '/features/:id/edit',
+        templateUrl: 'features/_newFeature.html',
+        controller: 'FeaturesCtrl',
+        authenticate: true,
+        title: 'Edit Feature'
       })
   }]);

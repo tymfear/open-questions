@@ -17,12 +17,13 @@ ActiveRecord::Schema.define(version: 20160719065243) do
   enable_extension "plpgsql"
 
   create_table "features", force: :cascade do |t|
-    t.string   "name",       null: false
+    t.string   "name",        null: false
+    t.text     "description"
     t.integer  "github_id"
-    t.string   "user_id",    null: false
+    t.string   "user_id",     null: false
     t.string   "owner"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
