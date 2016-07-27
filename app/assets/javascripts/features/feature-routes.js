@@ -18,12 +18,7 @@ my_app.config(['$stateProvider',
         templateUrl: 'features/_feature.html',
         controller: 'FeaturesCtrl',
         authenticate: true,
-        title: 'Feature',
-        resolve: {
-          featurePromise: ['features', '$stateParams', function(features, $stateParams){
-            return features.get($stateParams.id);
-          }]
-        }
+        title: 'Feature'
       })
       .state('newFeature', {
         url: '/new_feature',
@@ -35,7 +30,7 @@ my_app.config(['$stateProvider',
       .state('editFeature', {
         url: '/features/:id/edit',
         templateUrl: 'features/_newFeature.html',
-        controller: 'FeaturesCtrl',
+        controller: 'EditFeatureCtrl',
         authenticate: true,
         title: 'Edit Feature'
       })

@@ -21,8 +21,13 @@ class FeaturesController < ApplicationController
   end
 
   def update
-    @feature = Feature.find feature_params[:id]
-    @feature.update feature_params
+    @feature = Feature.find params[:id]
+
+    if @feature.update feature_params
+      render :show
+    else
+      render json: @feature.errors.messages, status: :unprocessable_entity
+    end
   end
 
   private

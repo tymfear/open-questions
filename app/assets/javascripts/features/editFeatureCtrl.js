@@ -1,20 +1,21 @@
-my_app.controller('FeaturesCtrl', [
+my_app.controller('EditFeatureCtrl', [
   '$scope', 'features', 'Auth', '$state', '$stateParams',
   function ($scope, features, Auth, $state, $stateParams) {
-    $scope.features = features.features;
+    $scope.feature_id = $stateParams.id;
 
-    features.get($stateParams.id).then(function(response){ $scope.feature = response.data});
-
-    Auth.currentUser().then(function (user) {
-      $scope.user = user;
-    });
+    features.get($stateParams.id).then(function(response){ $scope.f = response.data});
+    
+    features.get($stateParams.id).then(
+      function (response) {
+        $scope.feature = response
+      }
+    );
 
     $scope.saveFeature = function () {
-      features.create({
+      features.update({
         name: $scope.f.name,
         description: $scope.f.description,
         owner: $scope.f.owner,
-        user_id: $scope.user.id,
         github_id: $scope.f.github_id
       });
     };

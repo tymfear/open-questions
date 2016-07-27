@@ -17,7 +17,7 @@ my_app.run(['$rootScope', '$state', 'Auth', function ($rootScope, $state, Auth) 
 
     if (toState.unauthorized_only) {
       Auth.currentUser().then(function () {
-        $state.transitionTo("features");
+        $state.go("features");
         event.preventDefault();
       });
     }

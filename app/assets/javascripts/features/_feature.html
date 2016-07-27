@@ -2,7 +2,7 @@
     <h1>{{feature.name}} {{feature.github_id}}</h1>
 </div>
 <div class="pull-right">
-    <input type="submit" class="btn btn-primary" value="Edit Feature" > <!--TODO: complete navigation-->
+    <input type="submit" class="btn btn-primary" value="Edit Feature" ui-sref="editFeature({id: feature.id})">
 </div>
 <div class="panel-body">
     {{feature.description}}
