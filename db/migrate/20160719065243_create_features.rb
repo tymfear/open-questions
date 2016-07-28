@@ -6,6 +6,7 @@ class CreateFeatures < ActiveRecord::Migration
       t.integer :github_id
       t.string :user_id, null: false
       t.string :owner
+      t.integer :status
 
       t.timestamps null: false
     end

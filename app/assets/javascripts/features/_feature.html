@@ -3,6 +3,8 @@
 </div>
 <div class="pull-right">
     <input type="submit" class="btn btn-primary" value="Edit Feature" ui-sref="editFeature({id: feature.id})">
+    <input type="submit" class="btn btn-danger" value="Close Feature" ng-click="changeFeatureStatus('closed')" ng-show="feature.status === 2">
+    <input type="submit" class="btn btn-success" value="Reopen Feature" ng-click="changeFeatureStatus('open')" ng-show="feature.status === 1">
 </div>
 <div class="panel-body">
     {{feature.description}}

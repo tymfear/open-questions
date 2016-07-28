@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160719065243) do
     t.integer  "github_id"
     t.string   "user_id",     null: false
     t.string   "owner"
+    t.integer  "status"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

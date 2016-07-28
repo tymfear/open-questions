@@ -29,16 +29,6 @@ my_app.service('features', ['$http', 'Notification', '$state', '$stateParams',
     };
 
     self.update = function (feature) {
-      return $http.put('/features/' + $stateParams.id + '.json', feature)
-        .then(
-          function (response) {
-            Notification.success({message: response.data.notice});
-            $state.go('feature', {id: response.data.id});
-          },
-          function (response) {
-            for (var error in response.data) {
-              Notification.error({message: response.data[error].toString()});
-            }
-          });
+      return $http.put('/features/' + $stateParams.id + '.json', feature);
     };
   }]);

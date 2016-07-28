@@ -10,10 +10,11 @@ class FeaturesController < ApplicationController
   end
 
   def create
-    @feature = Feature.new feature_params
+    @feature = Feature.new(feature_params.merge status: 2)
 
     if @feature.save
       @notice = 'Feature created successfully'
+
       render :show
     else
       render json: @feature.errors.messages, status: :unprocessable_entity
@@ -24,6 +25,8 @@ class FeaturesController < ApplicationController
     @feature = Feature.find params[:id]
 
     if @feature.update feature_params
+      @notice = 'Feature updated successfully'
+
       render :show
     else
       render json: @feature.errors.messages, status: :unprocessable_entity
@@ -37,6 +40,6 @@ class FeaturesController < ApplicationController
 
   def feature_params
     params.require(:feature)
-      .permit :name, :github_id, :owner, :user_id, :description
+      .permit :name, :github_id, :owner, :user_id, :description, :status
   end
 end
