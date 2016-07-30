@@ -4,3 +4,10 @@ my_app.constant('featureStatus',
     open: 2
   }
 );
+
+my_app.constant('questionStatus',
+    {
+        responded: 1,
+        asked: 2
+    }
+);

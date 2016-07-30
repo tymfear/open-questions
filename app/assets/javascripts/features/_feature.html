@@ -9,3 +9,23 @@
 <div class="panel-body">
     {{feature.description}}
 </div>
+<div class="panel-body">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Question</th>
+            <th>Responder</th>
+            <th>Author</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="question in questions" class="clickable">
+            <td>{{question.id}}</td>
+            <td>{{question.body}}</td>
+            <td>{{question.responder}}</td>
+            <td>{{question.author}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

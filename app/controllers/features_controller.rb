@@ -1,6 +1,6 @@
 class FeaturesController < ApplicationController
   before_action :authenticate_user!
-  before_action :load_feature, only: :show
+  before_action :load_feature, only: [:show, :update]
 
   def index
     @features = Feature.includes(:user)
@@ -22,8 +22,6 @@ class FeaturesController < ApplicationController
   end
 
   def update
-    @feature = Feature.find params[:id]
-
     if @feature.update feature_params
       @notice = 'Feature updated successfully'
 

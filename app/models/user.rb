@@ -7,5 +7,6 @@ class User < ActiveRecord::Base
   validates :gitname, presence: true, uniqueness: true
 
   has_many :features
+  has_many :questions
 
 end

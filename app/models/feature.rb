@@ -1,5 +1,6 @@
 class Feature < ActiveRecord::Base
   belongs_to :user
+  has_many :questions
 
   STATUS = { closed: 1, open: 2 }
 
